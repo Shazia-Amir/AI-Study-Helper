@@ -8,7 +8,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score
 
 #--- 1. Data Generation and Initial Setup ---
-# Hum thoda zyada realistic dummy data banayenge
 np.random.seed(42) # For reproducibility
 
 study_hours = np.random.uniform(2, 12, 100) # 2 to 12 hours
@@ -39,10 +38,7 @@ r2 = r2_score(y_test, y_pred)
 st.set_page_config(page_title="🎓 AI Study Helper", layout="wide")
 
 st.title("AI Study Helper: Predict Your Exam Success")
-st.markdown("""
-Welcome to your personalized AI Study Helper! This tool uses a simple Machine Learning model
-to predict your potential final exam marks based on your study habits and previous academic performance.
-""")
+
 
 st.sidebar.header("Model Performance")
 st.sidebar.write(f"**Mean Absolute Error (MAE):** {mae:.2f} points")
@@ -103,16 +99,3 @@ ax3.set_xlabel("Final Marks (%)")
 ax3.set_ylabel("Number of Students")
 ax3.grid(True, linestyle='--', alpha=0.7)
 st.pyplot(fig3)
-st.markdown("This histogram shows how the final marks are distributed across the dataset, giving us an idea of the typical performance range.")
-
-st.markdown("---")
-st.markdown("### How to Use This App Locally:")
-st.code("""
-1. Save the code above as a Python file (e.g., `study_helper_app.py`).
-2. Open your terminal or command prompt.
-3. Navigate to the directory where you saved the file.
-4. Run the command: `streamlit run study_helper_app.py`
-5. Your browser will automatically open the app!
-""")
-
-st.info("**Pro Tip:** This model is based on simplified data. In a real-world scenario, you'd collect data from many students over time, including factors like sleep, attendance, course difficulty, and more, to build a much more robust predictive model.") 
